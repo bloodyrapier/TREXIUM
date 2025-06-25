@@ -1,40 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Скролл популярных товаров
+// Скролл популярных товаров
 const popularBlock = document.querySelector('.popular-block');
+
 if (popularBlock) {
   let isDragging = false;
   let startX = 0;
   let scrollLeft = 0;
-  function handleDragStart(e) {
-    isDragging = true;
-    startX = ('pageX' in e) ? e.pageX : e.touches[0].pageX;
-    startX -= popularBlock.offsetLeft;
-    scrollLeft = popularBlock.scrollLeft;
-  }
-  function handleDragMove(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = ('pageX' in e) ? e.pageX : e.touches[0].pageX;
-    const walk = (x - popularBlock.offsetLeft - startX) * 1.5;
-    popularBlock.scrollLeft = scrollLeft - walk;
-  }
-  function handleDragEnd() {
-    isDragging = false;
-  }
-  function setupDragScroll() {
-    if (window.innerWidth <= 768) {
-      // обработчики для мыши и тач устройств
-      popularBlock.addEventListener('mousedown', handleDragStart);
-      popularBlock.addEventListener('touchstart', handleDragStart, { passive: false });
-      popularBlock.addEventListener('mousemove', handleDragMove);
-      popularBlock.addEventListener('touchmove', handleDragMove, { passive: false });
-      popularBlock.addEventListener('mouseup', handleDragEnd);
-      popularBlock.addEventListener('touchend', handleDragEnd);
-      popularBlock.addEventListener('mouseleave', handleDragEnd);
-    }
-  }
+  const handleEvent = {
+    start: (e) => {
+      isDragging = true;
+      const pageX = e.pageX || e.touches[0].pageX;
+      startX = pageX - popularBlock.offsetLeft;
+      scrollLeft = popularBlock.scrollLeft;
+    },
+    move: (e) => {
+      if (!isDragging) return;
+      const pageX = e.pageX || e.touches[0].pageX;
+      const x = pageX - popularBlock.offsetLeft;
+      popularBlock.scrollLeft = scrollLeft - (x - startX) * 1.3;
+      e.preventDefault();
+    },
+    end: () => isDragging = false
+  };
+  const setupDragScroll = () => {
+    const isMobile = window.innerWidth <= 768;
+    const method = isMobile ? 'addEventListener' : 'removeEventListener';
+
+    ['mousedown', 'touchstart'].forEach(ev => popularBlock[method](ev, handleEvent.start));
+    ['mousemove', 'touchmove'].forEach(ev => popularBlock[method](ev, handleEvent.move, { passive: false }));
+    ['mouseup', 'touchend', 'mouseleave'].forEach(ev => popularBlock[method](ev, handleEvent.end));
+  };
   setupDragScroll();
-  // Обновление при изменении размера
   window.addEventListener('resize', setupDragScroll);
 }
   // Страница товара
