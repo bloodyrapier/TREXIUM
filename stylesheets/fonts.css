@@ -1,0 +1,52 @@
+@font-face {
+    src: url("../fonts/Inter/Inter-Light.ttf") format("truetype"); 
+    font-family: "InterLight";
+} 
+@font-face {
+    src: url("../fonts/Inter/Inter-Bold.ttf") format("truetype"); 
+    font-family: "InterBold";
+} 
+@font-face {
+    src: url("../fonts/Inter/Inter-ExtraBold.ttf") format("opentype"); 
+    font-family: "InterExtraBold";
+}
+@font-face {
+    src: url("../fonts/Inter/Inter-Medium.ttf") format("truetype"); 
+    font-family: "InterMedium";
+} 
+@font-face {
+    src: url("../fonts/Inter/Inter-Regular.ttf") format("truetype"); 
+    font-family: "InterRegular";
+} 
+@font-face {
+    src: url("../fonts/Inter/Inter-Italic.ttf") format("truetype"); 
+    font-family: "InterItalic";
+} 
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype"); 
+    font-family: "RobotoBold";
+} 
+@font-face {
+    src: url("../fonts/Roboto/Roboto-ExtraBold.ttf") format("truetype"); 
+    font-family: "RobotoExtraBold";
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype"); 
+    font-family: "RobotoMedium";
+} 
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype"); 
+    font-family: "RobotoRegular";
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype"); 
+    font-family: "RobotoLight";
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Italic.ttf") format("truetype"); 
+    font-family: "RobotoItalic";
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-BoldItalic.ttf") format("truetype"); 
+    font-family: "RobotoBoldItalic";
+}
