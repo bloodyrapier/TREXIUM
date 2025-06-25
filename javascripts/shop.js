@@ -15,7 +15,7 @@ if (popularBlock) {
     if (!isDragging) return;
     e.preventDefault();
     const x = ('pageX' in e) ? e.pageX : e.touches[0].pageX;
-    const walk = (x - popularBlock.offsetLeft - startX) * 1.3;
+    const walk = (x - popularBlock.offsetLeft - startX) * 1.5;
     popularBlock.scrollLeft = scrollLeft - walk;
   }
   function handleDragEnd() {
