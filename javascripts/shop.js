@@ -65,9 +65,6 @@ if (popularBlock) {
   const mainImageContainer = document.querySelector('.main-image');
   if (thumbnails.length > 0 && mainImageContainer) {
     const mainImage = mainImageContainer.querySelector('img');
-    if (mainImage) {
-      mainImage.style.transition = 'opacity 0.3s ease-out';
-    }
     thumbnails.forEach(thumbnail => {
       thumbnail.addEventListener('click', function() {
         if (this.classList.contains('active')) return;
